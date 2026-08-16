@@ -1,0 +1,33 @@
+from functools import lru_cache
+
+from pydantic_settings import BaseSettings, SettingsConfigDict
+
+
+class Settings(BaseSettings):
+    model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8", extra="ignore")
+
+    # --- App ---
+    app_env: str = "development"
+    log_level: str = "INFO"
+
+    # --- Database ---
+    database_url: str
+
+    # --- LLM Providers ---
+    anthropic_api_key: str | None = None
+    openai_api_key: str | None = None
+    groq_api_key: str | None = None
+
+    # --- Model routing (format: "<provider>:<model>") ---
+    supervisor_model: str = "groq:llama-3.1-8b-instant"
+    worker_model: str = "anthropic:claude-sonnet-4-5-20250929"
+
+    # --- Observability ---
+    langsmith_api_key: str | None = None
+    langsmith_project: str = "support-ops-copilot"
+    langsmith_tracing: bool = False
+
+
+@lru_cache
+def get_settings() -> Settings:
+    return Settings()
