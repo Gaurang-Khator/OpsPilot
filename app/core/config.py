@@ -17,14 +17,16 @@ class Settings(BaseSettings):
     anthropic_api_key: str | None = None
     openai_api_key: str | None = None
     groq_api_key: str | None = None
+    gemini_api_key: str | None = None
+    mistral_api_key: str | None = None
 
     # --- Model routing (format: "<provider>:<model>") ---
-    supervisor_model: str = "groq:llama-3.1-8b-instant"
-    worker_model: str = "anthropic:claude-sonnet-4-5-20250929"
+    supervisor_model: str = "gemini:gemini-2.5-flash"
+    worker_model: str = "groq:llama-3.1-8b-instant"
 
     # --- Observability ---
     langsmith_api_key: str | None = None
-    langsmith_project: str = "support-ops-copilot"
+    langsmith_project: str = "ops-pilot"
     langsmith_tracing: bool = False
 
 
