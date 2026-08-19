@@ -9,6 +9,8 @@ if str(ROOT) not in sys.path:
 from app.graph.supervisor import supervisor_node
 from langchain_core.messages import HumanMessage
 
+from app.tools.billing_tools import get_invoices_by_customer
+
 from app.graph.graph import result
 
 if __name__ == "__main__":
@@ -18,4 +20,7 @@ if __name__ == "__main__":
     #     "iterations": 0,
     # })
     # print(result)
-    print(result)
+
+    print(result["messages"][-1].content)
+
+    # print(get_invoices_by_customer(12))

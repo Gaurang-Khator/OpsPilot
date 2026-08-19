@@ -14,8 +14,7 @@ class routingDecision(BaseModel):
     reason: str
 
 
-SUPERVISOR_SYSTEM_PROMPT = """You are a routing supervisor for a customer support system.
-Classify the user's latest message into exactly one category:
+SUPERVISOR_SYSTEM_PROMPT = """You are a routing supervisor for a customer support system. Classify the user's latest message into exactly one category:
 - billing: payment, invoices, charges
 - technical: bugs, errors, how something works
 - refund: wants money back, order cancellation

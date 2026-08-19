@@ -16,5 +16,11 @@ class MessageOut(BaseModel):
     role: str
     content: str
 
+class InvoiceOut(BaseModel):
+    id: int
+    amount: float
+    status: str
+    description: str
+
 class ToolError(BaseModel):
     error: str

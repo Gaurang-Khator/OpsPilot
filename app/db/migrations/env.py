@@ -11,6 +11,7 @@ from app.db.session import Base
 from app.models.customer import Customer  # noqa: F401  -- import registers table with Base
 from app.models.conversation import Conversation  # noqa: F401
 from app.models.message import Message  # noqa: F401
+from app.models.invoice import Invoice
 # ---------------------
 
 # this is the Alembic Config object, which provides
