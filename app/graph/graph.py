@@ -1,8 +1,9 @@
 from langgraph.graph import StateGraph, START, END
 from app.graph.state import AgentState
 from app.graph.supervisor import supervisor_node
-from app.graph.stub_worker import technical_node, refund_node, knowledge_node, escalation_node
+from app.graph.stub_worker import refund_node, knowledge_node, escalation_node
 from app.graph.billing_agent import billing_node
+from app.graph.technical_agent import technical_node
 
 
 graph = StateGraph(AgentState)
@@ -60,7 +61,7 @@ graph.add_edge("escalation", END)
 app = graph.compile()
 
 result = app.invoke({
-    "messages" : [("user", "What invoices do I have? My email is test@example.com")],
+    "messages" : [("user", "my API keeps timing out, what's wrong")],
     "iterations" : 0,
     "next" : None,
     "intent" : None,
