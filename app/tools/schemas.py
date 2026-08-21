@@ -22,5 +22,11 @@ class InvoiceOut(BaseModel):
     status: str
     description: str
 
+class EscalationOut(BaseModel):
+    id: int
+    conversation_id: int
+    reason: str
+    status: str
+
 class ToolError(BaseModel):
     error: str
