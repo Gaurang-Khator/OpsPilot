@@ -28,5 +28,17 @@ class EscalationOut(BaseModel):
     reason: str
     status: str
 
+class OrderOut(BaseModel):
+    id: int
+    customer_id: int
+    amount: float
+    status: str
+
+class RefundOut(BaseModel):
+    id : int
+    order_id : int
+    amount : float
+    status : str
+
 class ToolError(BaseModel):
     error: str

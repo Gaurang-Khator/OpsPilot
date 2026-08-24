@@ -13,6 +13,8 @@ from app.models.conversation import Conversation  # noqa: F401
 from app.models.message import Message  # noqa: F401
 from app.models.invoice import Invoice
 from app.models.escalation import Escalation
+from app.models.order import Order
+from app.models.refund import Refund
 # ---------------------
 
 # this is the Alembic Config object, which provides
