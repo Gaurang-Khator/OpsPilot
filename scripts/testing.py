@@ -11,7 +11,7 @@ from langchain_core.messages import HumanMessage
 
 from app.tools.billing_tools import get_invoices_by_customer
 
-from app.graph.graph import result, result2
+from app.graph.graph import result
 
 if __name__ == "__main__":
 
@@ -24,6 +24,6 @@ if __name__ == "__main__":
     # print(result["messages"][-1].content)
 
     print(result)
-    print(result2)
+    # print(result2)
 
     # print(get_invoices_by_customer(12))

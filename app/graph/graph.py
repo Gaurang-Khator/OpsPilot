@@ -1,11 +1,11 @@
 from langgraph.graph import StateGraph, START, END
 from app.graph.state import AgentState
 from app.graph.supervisor import supervisor_node
-from app.graph.stub_worker import knowledge_node
 from app.graph.billing_agent import billing_node
 from app.graph.technical_agent import technical_node
 from app.graph.escalation_agent import escalation_node
 from app.graph.refund_agent import refund_node
+from app.graph.knowledge_agent import knowledge_node
 from app.graph.checkpointer import checkpointer
 from langgraph.types import Command
 
@@ -64,14 +64,14 @@ graph.add_edge("escalation", END)
 
 app = graph.compile(checkpointer=checkpointer)
 
-config = {"configurable" : {"thread_id" : "test-thread-2"}}
+config = {"configurable" : {"thread_id" : "kb-thread-1"}}
 
 result = app.invoke({
-    "messages" : [("user", "kindly initiate refund for order no 1")],
+    "messages" : [("user", "Do you offer a student discount?")],
     "iterations" : 0,
     "next" : None,
     "intent" : None,
     "confidence" : None
 }, config=config)
 
-result2 = app.invoke(Command(resume={"approved" : True}), config=config)
+# result2 = app.invoke(Command(resume={"approved" : True}), config=config)
